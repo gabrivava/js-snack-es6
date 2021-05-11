@@ -19,7 +19,7 @@ function CiclaERitornaMinore(lista) {
     return Math.min(...arrayPesiBici);
 }
 const biciPiuLeggera = CiclaERitornaMinore(bici);
-console.log(biciPiuLeggera);
+//console.log(biciPiuLeggera);
 //cerco il nome della bici in base al peso minore
 let nomeBici;
 for (let i = 0; i < bici.length; i++) {
@@ -27,22 +27,40 @@ for (let i = 0; i < bici.length; i++) {
         nomeBici = bici[i].nome;
     }
 } 
-console.log(nomeBici);
+//console.log(nomeBici);
 document.getElementById('bicicletta_leggera').innerHTML = 
 `
 <h1>La Bicicletta più leggera pesa ${biciPiuLeggera}kg ed è la ${nomeBici}</h1>
 `
 
 
-
-
-
-
 //Snack2:
 /* Creare un array di oggetti di squadre di calcio. Ogni squadra avrà diverse proprietà:
 nome,
 punti fatti,
-falli subiti.
-Nome sarà l’unica proprietà da compilare, le altre saranno tutte settate a 0.
-Generare numeri random al posto degli 0 nelle proprietà: Punti fatti e falli subiti.
-Infine usando la destrutturazione creiamo un nuovo array i cui elementi contengono solo nomi e falli subiti e stampiamo tutto in console. */
+falli subiti.*/
+//Nome sarà l’unica proprietà da compilare, le altre saranno tutte settate a 0.
+const squadre = [
+    {nome: 'atalanta', punti: 0, falli: 0},
+    {nome: 'milan', punti: 0, falli: 0},
+    {nome: 'juventus', punti: 0, falli: 0},
+    {nome: 'fiorentina', punti: 0, falli: 0},
+    {nome: 'roma', punti: 0, falli: 0}
+];
+
+//Generare numeri random al posto degli 0 nelle proprietà: Punti fatti e falli subiti.
+function randomNumber(min, max) {
+    return Math.floor(Math.random()* (max - min + 1) + min);
+}
+for (let i = 0; i < squadre.length; i++) {
+    squadre[i].punti = randomNumber(1, 10);
+    squadre[i].falli = randomNumber(1, 10);
+}
+console.log(squadre);
+//Infine usando la destrutturazione creiamo un nuovo array i cui elementi contengono solo nomi e falli subiti e stampiamo tutto in console. 
+const nomiFalli = [];
+for (let i = 0; i < squadre.length; i++) {
+    const {nome, falli} = squadre[i];
+    nomiFalli.push({nome, falli});
+}
+console.log(nomiFalli);
