@@ -9,7 +9,6 @@ const bici = [
     {nome: 'bici senza ruote', peso: 9}
 ];
 //Stampare a schermo la bici con peso minore utilizzando destructuring e template literal
-
 function CiclaERitornaMinore(lista) {
     let arrayPesiBici = [];
     for (let i = 0; i < lista.length; i++) {
@@ -21,10 +20,17 @@ function CiclaERitornaMinore(lista) {
 }
 const biciPiuLeggera = CiclaERitornaMinore(bici);
 console.log(biciPiuLeggera);
-
+//cerco il nome della bici in base al peso minore
+let nomeBici;
+for (let i = 0; i < bici.length; i++) {
+    if (bici[i].peso === biciPiuLeggera) {
+        nomeBici = bici[i].nome;
+    }
+} 
+console.log(nomeBici);
 document.getElementById('bicicletta_leggera').innerHTML = 
 `
-<h1>La Bcicicletta più leggera pesa ${biciPiuLeggera}kg</h1>
+<h1>La Bicicletta più leggera pesa ${biciPiuLeggera}kg ed è la ${nomeBici}</h1>
 `
 
 
