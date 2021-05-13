@@ -64,3 +64,35 @@ for (let i = 0; i < squadre.length; i++) {
     nomiFalli.push({nome, falli});
 }
 console.log(nomiFalli);
+
+
+//Snack 3:
+const lista = ['a', 'b', 'cia', 'doa', 'ai', 'tre', 'gua'];
+const a = 2;
+const b = 6;
+
+//Scrivere una funzione che accetti tre argomenti, un array e due numeri (a più piccolo di b).
+function filterElement(lista, a, b) {
+    const elCompresi = lista.filter( (value, i) => {
+        if ((i+1) >= a && (i+1) <= b) {
+            return true
+        }
+        return false
+    });
+    console.log(elCompresi);
+}
+filterElement(lista, a , b);
+//La funzione ritornerà un nuovo array con i valori che hanno la posizione compresa tra i due numeri.
+//Usiamo i nuovi metodi degli array foreach o filter.
+
+function checkIndex(lista, a, b) {
+    const newArray = [];
+    lista.forEach((element, index) => {
+        if ((index + 1) >= a && (index + 1) <= b) {
+            newArray.push(element);
+        }
+    });
+    console.log(newArray);
+    return newArray
+}
+checkIndex(lista, a, b)
